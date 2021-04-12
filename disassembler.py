@@ -252,34 +252,34 @@ def disassembler(assembly_name):
             #    imm = format(int(word[2]), '020b')
             #    file.write(f'{imm}_{rd}_{opcode}\n')
             
-    def reg_name_interpreter(reg_name):
-        if reg_name == 'zero':
-            return format(0, '05b')
-        elif reg_name == 'ra':
-            return format(1, '05b')
-        elif reg_name == 'sp':
-            return format(2, '05b')
-        elif reg_name == 'gp':
-            return format(3, '05b')
-        elif reg_name == 'tp':
-            return format(4, '05b')
-        elif reg_name[0] == 't':
-            if int(reg_name[1]) < 3:
-                base = 5
-            else:
-                base = 28 - 3
-            return format(base + int(reg_name[1]), '05b')
-        elif reg_name[0] == 's':
-            if int(reg_name[1]) < 2:
-                base = 8
-            else:
-                base = 18 - 2
-            return format(base + int(reg_name[1]), '05b')
-        elif reg_name[0] == 'a':
-            base = 10
-            return format(base + int(reg_name[1]), '05b')
+def reg_name_interpreter(reg_name):
+    if reg_name == 'zero':
+        return format(0, '05b')
+    elif reg_name == 'ra':
+        return format(1, '05b')
+    elif reg_name == 'sp':
+        return format(2, '05b')
+    elif reg_name == 'gp':
+        return format(3, '05b')
+    elif reg_name == 'tp':
+        return format(4, '05b')
+    elif reg_name[0] == 't':
+        if int(reg_name[1]) < 3:
+            base = 5
         else:
-            return format(int(reg_name), '05b')
+            base = 28 - 3
+        return format(base + int(reg_name[1]), '05b')
+    elif reg_name[0] == 's':
+        if int(reg_name[1]) < 2:
+            base = 8
+        else:
+            base = 18 - 2
+        return format(base + int(reg_name[1]), '05b')
+    elif reg_name[0] == 'a':
+        base = 10
+        return format(base + int(reg_name[1]), '05b')
+    else:
+        return format(int(reg_name), '05b')
 
 def main():
     parser = argparse.ArgumentParser(description="Test RISC-V CPU")
