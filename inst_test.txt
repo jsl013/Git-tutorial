@@ -1,0 +1,24 @@
+        addi    sp, sp, -16
+        sw      ra, 12(sp)
+        sw      s0, 8(sp)
+        addi    s0, sp, 16
+        sw      a0, -16(s0)
+        sw      a0, -12(s0)
+        jal     zero,  4
+        lw      a0, -12(s0)
+        addi    a1, zero, 9
+        blt     a1, a0, 44
+        jal     zero,  4
+        lw      a0, -16(s0)
+        lw      a1, -12(s0)
+        add     a0, a0, a1
+        sw      a0, -16(s0)
+        jal     zero,  4
+        lw      a0, -12(s0)
+        addi    a0, a0, 1
+        sw      a0, -12(s0)
+        jal     zero,  -48
+        lw      a0, -16(s0)
+        lw      s0, 8(sp)
+        lw      ra, 12(sp)
+        addi    sp, sp, 16
