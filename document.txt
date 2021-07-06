@@ -1,9 +1,0 @@
-# just for practice!
-
-hello, my name is Junseo Lee.
-
-Practice Git & GitHub!
-
-Let's go!
-
-# end
