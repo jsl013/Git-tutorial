@@ -4,12 +4,12 @@ import subprocess
 import string
 import argparse
 
-def disassembler(assembly_name):
+def assembler(assembly_name):
     cwd = os.getcwd()
     assem_f = open(os.path.join(cwd, assembly_name), "r")
     lines = assem_f.readlines()
     
-    path = os.path.join(cwd, "inst_disassembled.mem")
+    path = os.path.join(cwd, "inst_bin.mem")
         
     if os.path.exists(path):
         os.remove(path)
@@ -283,10 +283,10 @@ def reg_name_interpreter(reg_name):
 
 def main():
     parser = argparse.ArgumentParser(description="Test RISC-V CPU")
-    parser.add_argument("--path", type=str, help="path to binary instructions", default="data/inst_disassembled.mem")
+    parser.add_argument("--path", type=str, help="path to binary instructions", default="data/inst_bin.mem")
     args = parser.parse_args()
     
-    disassembler(args.path)
+    assembler(args.path)
     print("Successfully convert your assembly code to binary instructions!")
     
 if __name__ == "__main__":
